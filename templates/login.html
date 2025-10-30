@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🔐 Secure Access | Milk Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+            overflow: hidden;
+        }
+
+        /* floating glowing circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+            50% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+        }
+
+        /* login card */
+        .login-card {
+            position: relative;
+            width: 350px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            color: #fff;
+            z-index: 10;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #1abc9c, #16a085, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .login-card p {
+            color: #b0b0b0;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1em;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        input[type="password"]:focus {
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 10px #1abc9c;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #16a085, #2ecc71);
+            color: white;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #2ecc71, #1abc9c);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .error {
+            color: #ff5b5b;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 15px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85em;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <form method="POST" class="login-card">
+        <h2>🔒 Milk Data Login</h2>
+        <p>Enter your secure access password to continue</p>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Unlock</button>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </form>
+
+    <footer>© 2025 | Secure Access by Farhan 🔐</footer>
+</body>
+</html>
