@@ -90,6 +90,7 @@ def get_annual_spend():
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
 from flask import send_from_directory
 import os
 
@@ -101,4 +102,5 @@ def google_verify():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
