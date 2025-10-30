@@ -94,7 +94,8 @@ def logout():
 # ✅ Google Search Console verification file
 @app.route('/googleb5880ca1d0c7a902.html')
 def google_verify():
-    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'googleb5880ca1d0c7a902.html')
+   return app.send_static_file('googleb5880ca1d0c7a902.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
+
