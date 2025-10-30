@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, redirect, url_for, session
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session, send_from_directory
 import pandas as pd
 
 app = Flask(__name__)
@@ -85,11 +85,16 @@ def get_annual_spend():
         return jsonify({"error": f"Error calculating annual spend: {e}"})
 
 
-# 🚪 Logout option (optional)
+# 🚪 Logout option
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('login'))
+
+# ✅ Google Search Console Verification Route
+@app.route('/googleb5880ca1d0c7a902.html')
+def google_verify():
+    return send_from_directory('.', 'googleb5880ca1d0c7a902.html')
 
 
 if __name__ == '__main__':
